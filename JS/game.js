@@ -1,13 +1,6 @@
 //Hello World of Phaser = Basic Game = Single Scene in Spin & Win Game
 //How to create the basic skeleton for the game -> Game Loop
 
-prizes_config = {
-    count:12,
-    prize_names : ["3000 Credits","35% Off","Hard Luck","70% OFF","Swagpack","100% OFF","Netflix","50% Off","Amazon Voucher","2 Extra Spin", "CB Tshirt","CB Book"]
-}
-
-
-
 let config = {
     type : Phaser.CANVAS,
     width : 800,
@@ -19,7 +12,6 @@ let config = {
         create : create,
         update : update,
     }
-    
      
 };
 
@@ -102,16 +94,11 @@ function spinwheel() {
     
     let idx = prizes_config.count - 1 - Math.floor(degrees/(360/prizes_config.count));
     
-    
     let tween = this.tweens.add({
         targets: this.wheel,
         angle: total_angle,
         ease: 'cubic.out',
         duration: 6000,
-        //callbackScope : this,
-        /*onComplete: function() {
-            this.game_text.setText("You won " + prizes_config.prize_names[idx]);
-        }*/
     })
     
     setTimeout(() => {
